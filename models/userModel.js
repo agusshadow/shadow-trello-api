@@ -13,15 +13,11 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    created_at: {
-        type: Date,
-        required: false
-    },
     avatar: {
         type: String,
         required: false
     },
-})
+}, { timestamps: true })
 
 const User = mongoose.model('User', userSchema);
 
