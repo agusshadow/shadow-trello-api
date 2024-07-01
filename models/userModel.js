@@ -3,22 +3,22 @@ import mongoose from 'mongoose';
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: true,
-        unique: true,
+        required: [true, 'El nombre de usuario es obligatorio'],
+        unique: [true, 'El nombre de usuario ya existe'],
     },
     email: {
         type: String,
-        required: true,
-        unique: true,
-        match: /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        required: [true, 'El email es obligatorio'],
+        unique: [true, 'El email ya existe'],
+        match: [/^[^\s@]+@[^\s@]+\.[^\s@]+$/, 'El formato del email no es valido'],
       },
     password: {
         type: String,
-        required: true
+        required: true,
     },
     avatar: {
         type: String,
-        required: false
+        required: false,
     },
 }, { timestamps: true })
 
